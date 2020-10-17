@@ -1,5 +1,25 @@
 # kubernetes-study
 
+## how to study
+- 토요일 오전 11시 (7주)
+- 매주 정리해서 공유
+- 미리 학습 안했을 경우 벌금 (카뱅 모임통장)
+- 목표
+    - k8s concept 이해
+    - 기본 API 구성 (Scaling)
+    - Deployment (Rolling/BG/Canary) & Rollback
+- 희망 목표
+    - StatefulSet
+- 일정 
+    1. 4th of Oct
+    2. 5th of Oct
+    3. 1th of Nov
+    4. 2th of Nov
+    5. 3th of Nov
+    6. 4th of Nov
+    7. 1th of Dec
+    
+
 ## 2020.10.24 (https://kubernetes.io/ko/docs/concepts/)
 
 ### 개요
