@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+ name: replicaset-nginx
+#### 레플리카셋 정의 시작
+spec:
+ replicas: 4
+ selector:
+  matchLabels:
+   app: my-nginx-pods-label
+#### 레플리카셋 정의 끝
+#### 포드 정의 시작
+ template:
+  metadata:
+   name: my-nginx-pod
+   labels:
+    app: my-nginx-pods-label
+  spec:
+   containers:
+   - name: my-nginx-container
+     image: nginx:latest
+     ports:
+     - containerPort: 80
+       protocol: TCP
+#### 포드 정의 끝
