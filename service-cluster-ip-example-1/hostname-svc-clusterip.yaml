@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: hostname-svc-clusterip
+spec:
+ ports:
+  - name: web-port
+    ### 쿠버네트스 내부에서만 사용할 수 있는 고유한 IP를 할당받습니다. 서비스의 IP에 접근할 때 사용할 포트를 설정합니다.
+    port: 8080
+    ### selector 항목에서 정의한 라벨에 의해 접근 대상이 된 포드들이 내부적으로 사용하고 있는 포드를 입력합니다.
+    ### deployment-hostname.yaml에서 containerPort 항목에서 포드가 사용할 포드를 80으로 선언했기 때문에 targetPort도 80이다.
+    ### pod template의 containerPort와 같은 값으로 설정한다.
+    targetPort: 80
+ ### selector 항목은 이 서비스에서 어떠한 라벨을 가지는 포드에 접근할 수 있게 만들 것인지 결정합니다.
+ ### webserver라는 라벨을 가지는 포드들의 집합에 접근할 수 있는 서비스를 생성합니다.
+ selector:
+  app: webserver
+ ### Service의 타입
+ type: ClusterIP

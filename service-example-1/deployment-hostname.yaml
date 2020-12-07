@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+#### 디플로이먼트
+kind: Deployment
+metadata:
+ name: my-nginx-deployment
+#### 레플리카셋 정의 시작
+spec:
+ replicas: 3
+ selector:
+  matchLabels:
+   app: my-nginx
+#### 레플리카셋 정의 끝
+#### 포드 정의 시작
+ template:
+  metadata:
+   name: my-nginx-pod
+   labels:
+    app: my-nginx
+  spec:
+   containers:
+   - name: nginx
+     image: nginx:1.10
+     ports:
+     - containerPort: 80
+       protocol: TCP
+#### 포드 정의 끝
