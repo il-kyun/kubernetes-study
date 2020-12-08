@@ -1,25 +1,25 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+#### 디플로이먼트
+kind: Deployment
 metadata:
- name: replicaset-nginx
+ name: hostname-deployment
 #### 레플리카셋 정의 시작
 spec:
  replicas: 3
  selector:
   matchLabels:
-   app: my-nginx-pods-label
+   app: webserver
 #### 레플리카셋 정의 끝
 #### 포드 정의 시작
  template:
   metadata:
-   name: my-nginx-pod
+   name: my-webserver
    labels:
-    app: my-nginx-pods-label
+    app: webserver
   spec:
    containers:
-   - name: my-nginx-container
-     image: nginx:latest
+   - name: my-webserver
+     image: alicek106/rr-test:echo-hostname
      ports:
      - containerPort: 80
-       protocol: TCP
 #### 포드 정의 끝

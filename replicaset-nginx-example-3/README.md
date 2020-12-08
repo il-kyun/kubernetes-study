@@ -1,7 +1,7 @@
 # 레플리카셋으로 생성된 포드 중 하나의 포드의 라벨을 삭제하면?
 
 ## 실습
-1. 같은 라벨을 가진 레플리카셋을 이용하여 포드를 생성한다. (레플리카셋 포드 생성은 3개)
+1. 같은 라벨을 가진 레플리카셋을 이용하여 포드를 생성한다. (레플리카셋 포드 생성은 4개)
 > kubectl apply -f replicaset-nginx.yaml     
 ```replicaset.apps/replicaset-nginx created```
 > kubectl get pods --show-labels
