@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+#### 디플로이먼트
+kind: Deployment
+metadata:
+ name: hostname-deployment
+#### 레플리카셋 정의 시작
+spec:
+ replicas: 3
+ selector:
+  matchLabels:
+   app: webserver
+#### 레플리카셋 정의 끝
+#### 포드 정의 시작
+ template:
+  metadata:
+   name: my-webserver
+   labels:
+    app: webserver
+  spec:
+   containers:
+   - name: my-webserver
+     image: alicek106/rr-test:echo-hostname
+     ports:
+     - containerPort: 80
+#### 포드 정의 끝

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: hostname-svc-nodeport
+spec:
+ ports:
+  - name: web-port
+    ### 접근용 포트
+    port: 8080
+    ### pod template의 containerPort와 같은 값으로 설정한다.
+    targetPort: 80
+ ### selector 항목은 이 서비스에서 어떠한 라벨을 가지는 포드에 접근할 수 있게 만들 것인지 결정합니다.
+ ### webserver라는 라벨을 가지는 포드들의 집합에 접근할 수 있는 서비스를 생성합니다.
+ selector:
+  app: webserver
+ ### Service의 타입
+ type: NodePort
